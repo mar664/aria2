@@ -133,7 +133,7 @@ int GnuTLSSession::init(sock_t sockfd)
 #ifdef USE_GNUTLS_SYSTEM_CRYPTO_POLICY
   rv_ = gnutls_priority_set_direct(sslSession_, "@SYSTEM", &err);
 #else
-  std::string pri = "SECURE128:+SIGN-RSA-SHA1";
+  std::string pri = "NORMAL";
   switch (tlsContext_->getMinTLSVersion()) {
   case TLS_PROTO_TLS13:
     pri += ":-VERS-TLS1.2";
